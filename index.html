@@ -4,6 +4,7 @@
 <script src="https://api.trello.com/1/client.js?key=9d81cb74a01542be2b6c4c4bf77afa24"></script>
 <script>
 function onLoad(){
+	console.log("Start")
 	var authenticationSuccess = function() { console.log("Successful authentication"); };
 	var authenticationFailure = function() { console.log("Failed authentication"); };
 	Trello.authorize({
