@@ -1,31 +1,36 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="https://api.trello.com/1/client.js?key=[9d81cb74a01542be2b6c4c4bf77afa24]"></script>
+<script src="https://api.trello.com/1/client.js?key=9d81cb74a01542be2b6c4c4bf77afa24"></script>
 <script>
-function test(){
-	console.log("HI")
-}
-var authenticationSuccess = function() { return console.log("Successful authentication"); };
-var authenticationFailure = function() { return console.log("Failed authentication"); };
-function trelloSetup(){
+function onLoad(){
+	var authenticationSuccess = function() { console.log("Successful authentication"); };
+	var authenticationFailure = function() { console.log("Failed authentication"); };
 	Trello.authorize({
 		type: "popup",
-		name: "Getting Started Application",
+		name: "Henry's awesome dashboard",
 		scope: {
 			read: true,
 			write: false },
 		expiration: "never",
-		success: authenticationSuccess,
+		success: function (){ console.log("asd") },
 		error: authenticationFailure
 	});
+	/*function loadedBoards(boards){
+		$("#test").text(boards)
+	}*/
+	/*Trello.get(
+		'/members/me/boards/',
+		loadedBoards,
+		function() { return console.log("Failed to load boards"); }
+	);*/
+	
 }
-trelloSetup()
 </script>
 </head>
 
-<body>
+<body onload="onLoad()">
 Hi
-
+<div id="test">boo</div>
 </body>
 </html>
