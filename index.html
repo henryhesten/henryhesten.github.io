@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://api.trello.com/1/client.js?key=[9d81cb74a01542be2b6c4c4bf77afa24]"></script>
+<script>
+function test(){
+	console.log("HI")
+}
+var authenticationSuccess = function() { return console.log("Successful authentication"); };
+var authenticationFailure = function() { return console.log("Failed authentication"); };
+function trelloSetup(){
+	Trello.authorize({
+		type: "popup",
+		name: "Getting Started Application",
+		scope: {
+			read: true,
+			write: false },
+		expiration: "never",
+		success: authenticationSuccess,
+		error: authenticationFailure
+	});
+}
+trelloSetup()
+</script>
+</head>
+
+<body>
+Hi
+
+</body>
+</html>
